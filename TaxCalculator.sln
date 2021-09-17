@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxCalculator.CalculatorSample", "TaxCalculatorSample\TaxCalculator.CalculatorSample.csproj", "{C193BEF7-0B2A-45AD-87D4-22072F3743E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxCalculator.CalculatorSample", "TaxCalculator.CalculatorSample\TaxCalculator.CalculatorSample.csproj", "{C193BEF7-0B2A-45AD-87D4-22072F3743E4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxCalculator.Application", "TaxCalculator.Application\TaxCalculator.Application.csproj", "{16EB3937-AB3B-4F54-8111-6D32F1D93AA3}"
 EndProject
