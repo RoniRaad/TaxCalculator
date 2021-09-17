@@ -1,11 +1,12 @@
 ﻿using TaxCalculator.Application.Models;
 using System.Threading.Tasks;
+using TaxCalculator.Application.Requests;
 
 namespace TaxCalculator.Application.Interfaces
 {
     public interface ITaxCalculator
     {
-        Task<TaxRate> GetTaxesForLocation(TaxRatesForLocationRequest taxRatesForLocationRequest);
-        Task<Tax> GetTaxesForOrder(OrderTaxApiRequest orderTaxApiRequest);
+        Task<decimal> GetTaxesForLocation(TaxRatesForLocationRequest taxRatesForLocationRequest);
+        Task<decimal> GetTaxesForOrder(OrderTaxApiRequest orderTaxApiRequest);
     }
 }

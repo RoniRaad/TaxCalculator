@@ -1,11 +1,14 @@
 ﻿using TaxCalculator.Application;
 using TaxCalculator.Application.Interfaces;
 using TaxCalculator.Application.Models;
-using TaxCalculator.Infrastructure.Services;
+using TaxCalculator.Infrastructure.Clients;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Threading.Tasks;
+using TaxCalculator.Infrastructure.Models;
+using TaxCalculator.Application.Settings;
+using TaxCalculator.Application.Requests;
 
 namespace TaxCalculatorSample
 {
@@ -69,10 +72,10 @@ namespace TaxCalculatorSample
                 };
 
                 var taxRates = await taxService.GetTaxesForLocation(taxRateRequest);
-                var taxRateCombinedRate = taxRates.CombinedRate;
+                var taxRateCombinedRate = taxRates;
 
                 var orderTaxes = await taxService.GetTaxesForOrder(orderTaxRequest);
-                var orderTaxAmount = orderTaxes.AmountToCollect;
+                var orderTaxAmount = orderTaxes;
 
                 // Output the combined tax rate to the console.
                 Console.Write($"The combined tax rate for the example location is {taxRateCombinedRate} and the tax for the example order is {orderTaxAmount}");

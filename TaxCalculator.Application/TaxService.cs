@@ -6,24 +6,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TaxCalculator.Application.Requests;
 
 namespace TaxCalculator.Application
 {
     public class TaxService
     {
-        private readonly ILogger<TaxService> _logger;
         private readonly ITaxCalculator _taxCalculator;
-        public TaxService(ILogger<TaxService> logger, ITaxCalculator taxCalculator)
+
+        public TaxService(ITaxCalculator taxCalculator)
         {
-            logger = _logger;
             _taxCalculator = taxCalculator;
         }
-        public async Task<Tax> GetTaxesForOrder(OrderTaxApiRequest orderTaxApiRequest)
+
+        public async Task<decimal> GetTaxesForOrder(OrderTaxApiRequest orderTaxApiRequest)
         {
             return await _taxCalculator.GetTaxesForOrder(orderTaxApiRequest);
         }
 
-        public async Task<TaxRate> GetTaxesForLocation(TaxRatesForLocationRequest taxRatesForLocationRequest)
+        public async Task<decimal> GetTaxesForLocation(TaxRatesForLocationRequest taxRatesForLocationRequest)
         {
             return await _taxCalculator.GetTaxesForLocation(taxRatesForLocationRequest); 
         }

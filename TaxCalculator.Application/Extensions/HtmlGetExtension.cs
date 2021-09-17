@@ -19,9 +19,9 @@ namespace TaxCalculator.Application.Extensions
 
             var deserializedObject = JsonSerializer.Deserialize<IDictionary<string, object>>(serializedObject);
 
-            var inumerableObject = deserializedObject.Select(x => HttpUtility.UrlEncode(x.Key) + "=" + HttpUtility.UrlEncode(x.Value.ToString()));
+            var enumerableObject = deserializedObject.Select(x => HttpUtility.UrlEncode(x.Key) + "=" + HttpUtility.UrlEncode(x.Value.ToString()));
 
-            return string.Join("&", inumerableObject);
+            return string.Join("&", enumerableObject);
         }
     }
 }

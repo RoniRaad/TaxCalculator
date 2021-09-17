@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace TaxCalculator.Application.Models
+namespace TaxCalculator.Infrastructure.Models
 {
     public class Tax
     {
@@ -15,10 +15,10 @@ namespace TaxCalculator.Application.Models
         public float Shipping { get; set; }
 
         [JsonPropertyName("taxable_amount")]
-        public float TaxableAmount { get; set; }
+        public decimal TaxableAmount { get; set; }
 
         [JsonPropertyName("amount_to_collect")]
-        public float AmountToCollect { get; set; }
+        public decimal AmountToCollect { get; set; }
 
         [JsonPropertyName("rate")]
         public float Rate { get; set; }

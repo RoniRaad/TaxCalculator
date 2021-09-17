@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace TaxCalculator.Application.Models.ApiResponses
+namespace TaxCalculator.Infrastructure.Models.ApiResponses
 {
     public class TaxRatesForLocationResponse
     { 

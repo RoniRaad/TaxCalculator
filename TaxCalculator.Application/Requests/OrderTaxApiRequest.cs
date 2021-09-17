@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using TaxCalculator.Application.Models;
 
-namespace TaxCalculator.Application.Models
+namespace TaxCalculator.Application.Requests
 {
     public class OrderTaxApiRequest
     {

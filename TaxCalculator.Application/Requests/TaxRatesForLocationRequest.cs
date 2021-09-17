@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace TaxCalculator.Application.Models
+namespace TaxCalculator.Application.Requests
 {
     public class TaxRatesForLocationRequest
     { 
