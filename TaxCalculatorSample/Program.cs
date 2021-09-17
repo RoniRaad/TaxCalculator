@@ -18,7 +18,9 @@ namespace TaxCalculatorSample
             {
                 _host.Start();
                 TaxService taxService = _host.Services.GetRequiredService<TaxService>();
-                var request = new TaxRatesForLocationRequest
+
+                // A test location for the tax api to get info on
+                var taxRateRequest = new TaxRatesForLocationRequest
                 {
                     Country = "us",
                     State = "fl",
@@ -26,10 +28,54 @@ namespace TaxCalculatorSample
                     Street = "Space Commerce Way",
                     ZipCode = "32953"
                 };
-                var taxRates = await taxService.GetTaxesForLocation(request);
-                var cityRate = taxRates.CityRate;
 
-                Console.Write(cityRate);
+                // A test order tax request
+                var orderTaxRequest = new OrderTaxApiRequest
+                {
+                    FromCountry = "us",
+                    FromZipCode = "90002",
+                    FromCity = "La Jolla",
+                    FromState = "CA",
+                    FromStreet = "9500 Gilman Drive",
+                    ToCity = "Los Angeles",
+                    ToCountry = "US",
+                    ToZipCode = "92093",
+                    ToStreet = "1335 E 103rd St",
+                    ToState = "CA",
+                    Amount = "15",
+                    Shipping = "1.5",
+                    NexusAddresses = new NexusAddress[1]
+                    {
+                        new NexusAddress
+                        {
+                            Id = "Main Location",
+                            Country = "US",
+                            ZipCode = "92093",
+                            City = "La Jolla",
+                            Street = "9500 Gilman Drive"
+                        }
+                    },
+                    LineItems = new LineItem[1]
+                    {
+                        new LineItem
+                        {
+                            Id = "1",
+                            Quantity = "1",
+                            ProductTaxCode = "20010",
+                            UnitPrice = "15",
+                            Discount = "0"
+                        }
+                    }
+                };
+
+                var taxRates = await taxService.GetTaxesForLocation(taxRateRequest);
+                var taxRateCombinedRate = taxRates.CombinedRate;
+
+                var orderTaxes = await taxService.GetTaxesForOrder(orderTaxRequest);
+                var orderTaxAmount = orderTaxes.AmountToCollect;
+
+                // Output the combined tax rate to the console.
+                Console.Write($"The combined tax rate for the example location is {taxRateCombinedRate} and the tax for the example order is {orderTaxAmount}");
             }
         }
 

@@ -12,7 +12,10 @@ namespace TaxCalculator.Application.Extensions
     {
         public static string ObjToGetString(this object obj)
         {
-            var serializedObject = JsonSerializer.Serialize(obj);
+            JsonSerializerOptions options = new JsonSerializerOptions();
+            options.IgnoreNullValues = true;
+
+            var serializedObject = JsonSerializer.Serialize(obj, options);
 
             var deserializedObject = JsonSerializer.Deserialize<IDictionary<string, object>>(serializedObject);
 

@@ -9,19 +9,19 @@ namespace TaxCalculator.Application.Models
     public class Tax
     {
         [JsonPropertyName("order_total_amount")]
-        public string OrderTotalAmount { get; set; }
+        public float OrderTotalAmount { get; set; }
 
         [JsonPropertyName("shipping")]
-        public string Shipping { get; set; }
+        public float Shipping { get; set; }
 
         [JsonPropertyName("taxable_amount")]
-        public string TaxableAmount { get; set; }
+        public float TaxableAmount { get; set; }
 
         [JsonPropertyName("amount_to_collect")]
-        public string AmountToCollect { get; set; }
+        public float AmountToCollect { get; set; }
 
         [JsonPropertyName("rate")]
-        public string Rate { get; set; }
+        public float Rate { get; set; }
 
         [JsonPropertyName("has_nexus")]
         public bool HasNexus { get; set; }

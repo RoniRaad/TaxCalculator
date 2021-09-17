@@ -12,7 +12,6 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace TaxCalculator.Infrastructure.Services
 {
@@ -34,14 +33,27 @@ namespace TaxCalculator.Infrastructure.Services
 
             _httpClient.DefaultRequestHeaders.Authorization
                          = new AuthenticationHeaderValue("Bearer", _settings.Key);
+
+
         }
         public async Task<Tax> GetTaxesForOrder(OrderTaxApiRequest orderTaxApiRequest)
         {
             try
             {
-                _logger.LogInformation($"Attempting to get taxes for customer #{orderTaxApiRequest.CustomerId}");
-                HttpResponseMessage response = await _httpClient.GetAsync($"{_settings.Url}/v2/taxes/?{orderTaxApiRequest.ObjToGetString()}");
+                _logger.LogInformation($"Attempting to get taxes for order to {orderTaxApiRequest.ToCity}");
+
+                JsonSerializerOptions options = new JsonSerializerOptions();
+                options.IgnoreNullValues = true;
+
+                var json = JsonSerializer.Serialize(orderTaxApiRequest, options);
+                var jsonToSend = new StringContent(json,
+                                                    Encoding.UTF8,
+                                                    "application/json");
+                
+                HttpResponseMessage response = await _httpClient.PostAsync($"{_settings.Url}/v2/taxes", jsonToSend);
                 response.EnsureSuccessStatusCode();
+
+                _logger.LogInformation($"Successfully got taxes for order to {orderTaxApiRequest.ToCity}!");
 
                 string responseBody = await response.Content.ReadAsStringAsync();
                 var taxData = JsonSerializer.Deserialize<OrderTaxApiResponse>(responseBody);
@@ -52,6 +64,7 @@ namespace TaxCalculator.Infrastructure.Services
             {
                 _logger.LogError("\nAn error occured");
                 _logger.LogError(e.Message);
+                _logger.LogError(e.InnerException.Message);
                 _logger.LogError(e.StackTrace);
                 throw;
             }
@@ -65,6 +78,8 @@ namespace TaxCalculator.Infrastructure.Services
 
                 HttpResponseMessage response = await _httpClient.GetAsync($"{_settings.Url}/v2/rates/?{taxRatesForLocationRequest.ObjToGetString()}");
                 response.EnsureSuccessStatusCode();
+                _logger.LogInformation($"Successfully got tax information for location in zipcode {taxRatesForLocationRequest.ZipCode} and state {taxRatesForLocationRequest.State}");
+
 
                 string responseBody = await response.Content.ReadAsStringAsync();
                 var taxData = JsonSerializer.Deserialize<TaxRatesForLocationResponse>(responseBody);
@@ -75,6 +90,7 @@ namespace TaxCalculator.Infrastructure.Services
             {
                 _logger.LogError("\nAn error occured");
                 _logger.LogError(e.Message);
+                _logger.LogError(e.InnerException.Message);
                 _logger.LogError(e.StackTrace);
                 throw;
             }

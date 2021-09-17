@@ -23,6 +23,9 @@ namespace TaxCalculator.Application.Models
         [JsonPropertyName("from_street")]
         public string FromStreet { get; set; }
 
+        [JsonPropertyName("to_country")]
+        public string ToCountry { get; set; }
+
         [JsonPropertyName("to_zip")]
         public string ToZipCode { get; set; }
 
@@ -32,17 +35,17 @@ namespace TaxCalculator.Application.Models
         [JsonPropertyName("to_city")]
         public string ToCity { get; set; }
 
-        [JsonPropertyName("from_street")]
+        [JsonPropertyName("to_street")]
         public string ToStreet { get; set; }
 
         [JsonPropertyName("amount")]
-        public float Amount { get; set; }
+        public string Amount { get; set; }
 
         [JsonPropertyName("shipping")]
-        public float Shipping { get; set; }
+        public string Shipping { get; set; }
 
         [JsonPropertyName("customer_id")]
-        public float CustomerId { get; set; }
+        public string CustomerId { get; set; }
 
         [JsonPropertyName("nexus_addresses")]
         public NexusAddress[] NexusAddresses { get; set; }
