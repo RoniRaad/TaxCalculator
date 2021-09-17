@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using TaxCalculator.Infrastructure.Models;
 
-namespace TaxCalculator.Infrastructure.Models.ApiResponses
+namespace TaxCalculator.Infrastructure.Responses
 {
     public class TaxRatesForLocationResponse
     { 

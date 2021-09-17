@@ -10,7 +10,7 @@ using TaxCalculator.Infrastructure.Models;
 using TaxCalculator.Application.Settings;
 using TaxCalculator.Application.Requests;
 
-namespace TaxCalculatorSample
+namespace TaxCalculator.CalculatorSample
 {
     class Program
     {

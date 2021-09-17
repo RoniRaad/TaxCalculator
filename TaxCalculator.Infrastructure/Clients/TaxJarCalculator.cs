@@ -11,7 +11,7 @@ using TaxCalculator.Application.Interfaces;
 using TaxCalculator.Application.Models;
 using TaxCalculator.Application.Requests;
 using TaxCalculator.Application.Settings;
-using TaxCalculator.Infrastructure.Models.ApiResponses;
+using TaxCalculator.Infrastructure.Responses;
 
 namespace TaxCalculator.Infrastructure.Clients
 {
