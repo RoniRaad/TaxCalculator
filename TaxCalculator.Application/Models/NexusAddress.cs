@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace TaxCalculator.Application.Models
+namespace TaxCalculator.Core.Models
 {
     public class NexusAddress
     {

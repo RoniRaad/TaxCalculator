@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
-using TaxCalculator.Application.Models;
+using TaxCalculator.Core.Models;
 
-namespace TaxCalculator.Infrastructure.Models
+namespace TaxCalculator.Core.Models
 {
     public class Breakdown
     {

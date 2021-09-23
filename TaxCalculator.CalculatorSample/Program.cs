@@ -1,14 +1,13 @@
-﻿using TaxCalculator.Application;
-using TaxCalculator.Application.Interfaces;
-using TaxCalculator.Application.Models;
-using TaxCalculator.Infrastructure.Clients;
+﻿using TaxCalculator.Core;
+using TaxCalculator.Core.Interfaces;
+using TaxCalculator.Core.Models;
+using TaxCalculator.Core.Clients;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Threading.Tasks;
-using TaxCalculator.Infrastructure.Models;
-using TaxCalculator.Application.Settings;
-using TaxCalculator.Application.Requests;
+using TaxCalculator.Core.Settings;
+using TaxCalculator.Core.Requests;
 
 namespace TaxCalculator.CalculatorSample
 {

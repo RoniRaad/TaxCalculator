@@ -6,14 +6,14 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using TaxCalculator.Application.Extensions;
-using TaxCalculator.Application.Interfaces;
-using TaxCalculator.Application.Models;
-using TaxCalculator.Application.Requests;
-using TaxCalculator.Application.Settings;
-using TaxCalculator.Infrastructure.Responses;
+using TaxCalculator.Core.Extensions;
+using TaxCalculator.Core.Interfaces;
+using TaxCalculator.Core.Models;
+using TaxCalculator.Core.Requests;
+using TaxCalculator.Core.Settings;
+using TaxCalculator.Core.Responses;
 
-namespace TaxCalculator.Infrastructure.Clients
+namespace TaxCalculator.Core.Clients
 {
     public class TaxJarCalculator : ITaxCalculator
     {
@@ -29,7 +29,10 @@ namespace TaxCalculator.Infrastructure.Clients
 
             if (string.IsNullOrEmpty(_settings?.Key))
             {
-                throw new Exception("Error: Tax calculator settings is missing its API Key.");
+                var ex = new Exception("Tax calculator settings is missing its API Key.");
+                _logger.LogError("\nAn error occured");
+                _logger.LogError(ex.Message);
+                throw ex;
             }
 
             _httpClient.DefaultRequestHeaders.Authorization

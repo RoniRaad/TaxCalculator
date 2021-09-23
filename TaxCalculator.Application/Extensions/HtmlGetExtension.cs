@@ -6,7 +6,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace TaxCalculator.Application.Extensions
+namespace TaxCalculator.Core.Extensions
 {
     public static class HtmlGetExtension
     {

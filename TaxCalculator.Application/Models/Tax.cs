@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace TaxCalculator.Infrastructure.Models
+namespace TaxCalculator.Core.Models
 {
     public class Tax
     {

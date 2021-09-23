@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using TaxCalculator.Infrastructure.Models;
+using TaxCalculator.Core.Models;
 
-namespace TaxCalculator.Infrastructure.Responses
+namespace TaxCalculator.Core.Responses
 {
     public class OrderTaxApiResponse
     {

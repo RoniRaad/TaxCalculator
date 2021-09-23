@@ -1,11 +1,11 @@
 using Moq;
 using System;
 using System.Threading.Tasks;
-using TaxCalculator.Application;
-using TaxCalculator.Application.Interfaces;
-using TaxCalculator.Application.Models;
-using TaxCalculator.Application.Requests;
-using TaxCalculator.Infrastructure.Models;
+using TaxCalculator.Core;
+using TaxCalculator.Core.Interfaces;
+using TaxCalculator.Core.Models;
+using TaxCalculator.Core.Requests;
+using TaxCalculator.Core.Models;
 using Xunit;
 
 namespace TaxCalculator.Tests

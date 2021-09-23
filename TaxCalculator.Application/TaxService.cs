@@ -1,14 +1,14 @@
-﻿using TaxCalculator.Application.Interfaces;
-using TaxCalculator.Application.Models;
+﻿using TaxCalculator.Core.Interfaces;
+using TaxCalculator.Core.Models;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TaxCalculator.Application.Requests;
+using TaxCalculator.Core.Requests;
 
-namespace TaxCalculator.Application
+namespace TaxCalculator.Core
 {
     public class TaxService
     {

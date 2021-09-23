@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace TaxCalculator.Infrastructure.Models
+namespace TaxCalculator.Core.Models
 {
     public class Jurisdictions
     {

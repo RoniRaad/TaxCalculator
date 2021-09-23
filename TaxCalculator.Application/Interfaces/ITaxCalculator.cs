@@ -1,8 +1,8 @@
-﻿using TaxCalculator.Application.Models;
+﻿using TaxCalculator.Core.Models;
 using System.Threading.Tasks;
-using TaxCalculator.Application.Requests;
+using TaxCalculator.Core.Requests;
 
-namespace TaxCalculator.Application.Interfaces
+namespace TaxCalculator.Core.Interfaces
 {
     public interface ITaxCalculator
     {
